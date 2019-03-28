@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">添加品牌</h3>
+        </div>
+        <div class="panel-body" from-inline>
+          <label>
+            ID:
+            <input type="text" class="from-control" v-model="id" />
+          </label>
+          <label>
+            Name:
+            <input type="text" class="from-control" v-model="name" />
+          </label>
+          <input
+            type="button"
+            value="添加"
+            class="btn btn-primary"
+            @click="add"
+          />
+          <label>
+            搜索:
+            <input type="text" class="from-control" v-model="keywords" />
+          </label>
+        </div>
+      </div>
+
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CTime</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in search(keywords)" :key="item.ID">
+            <td>{{ item.ID }}</td>
+            <td>{{ item.Name }}</td>
+            <td>{{ item.CTime | dataFormat('') }}</td>
+            <td><a href="#" v-on:click.prevent="del(item.ID)">删除</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      //过滤器 语法    Vue.filter("过滤器的名字",function(第一个参数永远为要操作的数据){})
+      Vue.filter("dataFormat", function(dateStr,alltime) {
+        var dt = new Date(dateStr);
+        var y = dt.getFullYear();
+        var m = dt.getMonth() + 1;
+        var d = dt.getDate();
+        
+        if (alltime.toLowerCase()=='yyyy-mm-dd') {
+            return `${y}-${m}-${d}`;
+        }else {
+            var hh=dt.getHours();
+            var mm=dt.getMinutes();
+            var ss=dt.getSeconds();
+            return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+        }
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          id: "",
+          name: "",
+          keywords: "",
+          msg: "欢迎学习vue",
+          list: [
+            { ID: 1, Name: "奥迪", CTime: new Date() },
+            { ID: 2, Name: "奔驰", CTime: new Date() }
+          ]
+        },
+        methods: {
+          add() {
+            console.log("添加");
+            var car = { ID: this.id, Name: this.name, CTime: new Date() };
+            this.list.push(car);
+            this.id = this.name = "";
+          },
+          del(id) {
+            console.log(id);
+            this.list.some((item, i) => {
+              if (item.ID == id) {
+                this.list.splice(i, 1);
+                return true;
+              }
+            });
+          },
+          search(keywords) {
+            console.log(this.keywords == keywords);
+
+            return this.list.filter(item => {
+              if (item.Name.includes(keywords)) {
+                return item;
+              }
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
