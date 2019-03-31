@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03.JQuery操作html的元素</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    //传递参数会改变文本的值
+    /*  text() - 设置或返回所选元素的文本内容
+        html() - 设置或返回所选元素的内容（包括 HTML 标记）
+        val() - 设置或返回表单字段的值
+        可以查看JQuery官方手册 来操作html元素
+    * */
+    $(function () {
+        $("#test").text("传递参数会怎么样？");
+    })
+</script>
+<p id="test">这是一个段落</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01.jQuery语法</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+</head>
+<body>
+<script>
+/*  $()为jQuery的核心函数
+    参数可以是 DOM元素名称  例如 $("p") 获取p标签
+*
+*
+* */
+    $(function(){
+        $("input").focus(function () {
+            $(this).css("background-color","#bbff22");
+            //alert("h2标签");
+        });
+        $("button").click(function(){
+            $("#app").hide();
+        });
+        let $p=$("p");
+        let p=document.getElementById("app");
+        console.log(p);        //输出的是Dom元素
+        console.log($p);       //输出的是jQuery对象
+    });
+</script>
+<h2>这是一个标题</h2>
+<p id="app">这是一个段落。</p>
+<p>这是另一个段落。</p>
+<input type="text">
+<button>点我</button>
+</body>
+</html>
