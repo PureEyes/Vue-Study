@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06.JQuery仿淘宝广告</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box1 > img {
+            width: 216px;
+            height: 289px;
+            margin-top: 150px;
+            position: fixed;
+            float: left;
+            left: 0px;
+        }
+        .box2 > img {
+            width: 216px;
+            height: 289px;
+            margin-top: 150px;
+            position: fixed;
+            float: right;
+            right: 0px;
+        }
+        img {
+            display: none;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                let $off=$("body,html").scrollTop();   //获取滚动的偏移量
+                if($off>400){
+                    $("img").show(2000);
+                }else{
+                    $("img").hide(2000);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="box1">
+    <img src="../img/guanggao_01.jpg" alt="pic">
+</div>
+<div class="box2">
+    <img src="../img/guanggao_01.jpg" alt="pic">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

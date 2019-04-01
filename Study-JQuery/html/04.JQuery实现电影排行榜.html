@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04.JQuery实现电影排行榜</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box{
+            width: 270px;
+            height: 355px;
+            border: #cccccc solid 2px;
+            margin: 50px auto;
+        }
+        ul li{
+            list-style: none;
+            padding: 5px 10px;
+            border-bottom: #cccccc dashed 1px;
+            border-top: #cccccc dashed 1px;
+
+        }
+        ul li:nth-child(-n+3) span{
+            background-color: deeppink;
+        }
+        ul li span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #cccccc;
+            text-align: center;
+            margin-right: 10px;
+        }
+        h1{
+            color: deeppink;
+            font-size: 20px;
+            padding-left: 10px;
+            line-height: 35px;
+            border-bottom: #cccccc dashed 1px;
+        }
+        .mv{
+            overflow: hidden;
+            margin-top: 5px;
+            display: none;
+        }
+        .mv img{
+            width: 120px;
+            height: 80px;
+        }
+        .mv p{
+            width: 120px;
+            height: 80px;
+            font-size: 12px;
+            float: right;
+        }
+        .show .mv{
+            display: block;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            // $("li").mouseenter(function () {
+            //     $(this).addClass("show");
+            // });
+            // $("li").mouseleave(function () {
+            //     $(this).removeClass("show");
+            // });
+            $("li").hover(function () {
+                $(this).addClass("show");
+            },function () {
+                $(this).removeClass("show");
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h1>电影排行榜</h1>
+    <ul>
+        <li><span>1</span>妲己
+            <div class="mv">
+                <img src="../img/daji.jpg" alt="妲己"/>
+                <p>妲己，有苏氏部落族人，于有苏国（今河南省温县）人，己姓，字妲。父不详（《封神演义》中为冀州侯苏护），又称“苏妲己”。商王帝辛(受德)妃子。
+                    妲己是帝辛征伐有苏氏部落时带回的战利品，因妲己骨肉婷匀，眉宇清秀，深得帝辛欢心，从此纵情于声色犬马之中，后武王伐纣，将妲己杀死，妲己去世时间约公元前1046年。</p>
+            </div>
+        </li>
+        <li><span>2</span>后羿
+            <div class="mv">
+                <img src="../img/houyi.jpg" alt="后羿"/>
+                <p>羿，后人讹传为后羿，又称大羿、司羿，五帝时期人物，帝尧的射师，嫦娥的丈夫。有“后羿射日”的典故。
+                    羿在年仅五岁的时候被父母抛弃在深山，自幼在山林中成长。他善于射箭，后来成为射师，被帝尧封于商丘（今河南省商丘市），大羿曾经帮助帝尧射下九日，匡扶黎明。</p>
+            </div>
+        </li>
+        <li><span>3</span>电影名称</li>
+        <li><span>4</span>电影名称</li>
+        <li><span>5</span>电影名称</li>
+        <li><span>6</span>电影名称</li>
+        <li><span>7</span>电影名称</li>
+        <li><span>8</span>电影名称</li>
+        <li><span>9</span>电影名称</li>
+        <li><span>10</span>电影名称</li>
+    </ul>
+</div>
+</body>
+</html>

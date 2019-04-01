@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05.JQuery实现选项卡</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .box {
+            width: 492px;
+            height: 310px;
+            margin: 100px auto;
+            border: #cc958f solid 1px;
+        }
+        .nav-text > li {
+            list-style: none;
+            width: 80px;
+            height: 40px;
+            float: left;
+            text-align: center;
+            background-color: orchid;
+            line-height: 40px;
+            border: #da97c4 solid 1px;
+        }
+        .nav-text>.onclick{
+            background-color: coral;
+        }
+        .nav-img > li {
+            list-style: none;
+            display: none;
+        }
+        .nav-img > li > img {
+
+            width: 492px;
+            height: 270px;
+        }
+        .nav-img > .show {
+            display: block;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            $("li").mouseenter(function () {
+                $(this).addClass("onclick");   //this为你选中的那个li
+                $(this).siblings().removeClass("onclick");   //siblings()方法 选中其余的同级元素 如（其余的五个 li ）
+                let $index=$(this).index();        //获得选中元素的索引
+                let $img=$(".nav-img>li").eq($index);     //根据索引返回一个JQuery对象
+                $img.addClass("show");                 //显示JQuery对象
+                $img.siblings().removeClass("show");    //隐藏其余JQuery对象
+            });
+            // $("li").mouseleave(function () {
+            //     $(this).removeClass("onclick");
+            //     let $index=$(this).index();
+            //     let $img=$(".nav-img>li").eq($index);
+            //     $img.removeClass("show");
+            // });
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul class="nav-text">
+        <li class="onclick">妲己</li>
+        <li>凯</li>
+        <li>后羿</li>
+        <li>貂蝉</li>
+        <li>干将</li>
+        <li>兰陵王</li>
+    </ul>
+    <ul class="nav-img">
+        <li class="show"><img src="../img/daji.jpg" alt="妲己"></li>
+        <li><img src="../img/kai.jpg" alt="妲己"></li>
+        <li><img src="../img/houyi.jpg" alt="妲己"></li>
+        <li><img src="../img/diaochan.jpg" alt="妲己"></li>
+        <li><img src="../img/ganjiang.jpeg" alt="妲己"></li>
+        <li><img src="../img/lanlingwang.jpg" alt="妲己"></li>
+    </ul>
+</div>
+</body>
+</html>
