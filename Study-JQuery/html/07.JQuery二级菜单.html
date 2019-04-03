@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07.JQuery二级菜单</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .nav {
+            margin: 100px auto;
+            list-style: none;
+            width: 300px;
+            height: 320px;
+        }
+
+        .nav > li {
+            border: #000000 solid 1px;
+            border-bottom: none;
+            line-height: 40px;
+            text-indent: 2em;
+            position: relative;
+        }
+
+        .nav > li > span {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            background: url("../img/jiantou.jpg") no-repeat center center;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+
+        .nav > li:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .nav > li:last-child {
+            border-bottom: #000000 solid 1px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .nav > li:last-child > .sub > li:last-child {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .sub {
+            list-style: none;
+            display: none;
+        }
+
+        .sub > li {
+            background: #da97c4;
+            border-top: #cc958f solid 1px;
+        }
+
+        .sub > li:hover {
+            background: #da5151;
+        }
+
+        .nav > .change > span {
+            transform: rotate(270deg);
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            // var add = (function () {
+            //     var counter = 0;
+            //     return function () {
+            //         return counter ++;
+            //     }
+            // })();
+            $(".nav>li").click(function () {
+                console.log(add());
+
+                $(this).children(".sub").slideDown(1000);
+                $(this).siblings().children(".sub").slideUp(1000);
+                $(this).addClass("change");
+                $(this).siblings().removeClass("change");
+            });
+        })
+    </script>
+</head>
+<body>
+<ul class="nav">
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单<span></span>
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
